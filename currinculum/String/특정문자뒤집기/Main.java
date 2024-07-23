@@ -3,23 +3,13 @@ import java.util.Scanner;
 
 class Main{
     public String solution(String str){
-        String answer;
-        char[] chars = str.toCharArray();
-        int lt = 0, rt = str.length()-1;
+        String answer = "";
 
-        while(lt < rt){
-            if(!Character.isAlphabetic(chars[lt])) lt ++;
-            else if(!Character.isAlphabetic(chars[rt])) rt --;
-            else {
-                char tmp = chars[lt];
-                chars[lt] = chars[rt];
-                chars[rt] = tmp;
-                lt ++;
-                rt --;
+        for(int i=0;i<str.length() ;i++){
+            if(str.indexOf(str.charAt(i)) == i){
+                answer += str.charAt(i);
             }
         }
-
-        answer = String.valueOf(chars);
         return answer;
     }
 
