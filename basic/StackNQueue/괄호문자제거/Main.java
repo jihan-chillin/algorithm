@@ -1,18 +1,20 @@
-package StackNQueue.올바른괄호;
+package StackNQueue.괄호문자제거;
 import java.util.Scanner;
 import java.util.Stack;
 
 class Main{
 
     public String solution(String str) {
-        String answer = "";
+        String answer = "YES";
         Stack<Character> stack = new Stack<>();
         for(char x : str.toCharArray()){
-            if(x != ')') stack.push(x);
-            else while(stack.pop() != '(');
+            if(x == '(') stack.push(x);
+            else {
+                if(stack.isEmpty()) return "NO";
+                else stack.pop();
+            }
         }
-
-        for(int i = 0; i <stack.size(); i++) answer += stack.get(i);
+        if(!stack.isEmpty()) return "NO";
         return answer;
     }
 
